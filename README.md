@@ -1,5 +1,5 @@
 # rpi-pico-stepper
-Very simple program to control a stepper motor using the Pico C SDK via a Raspberry Pi Pico.
+Very simple program to control a stepper motor using the Pico C SDK via a Raspberry Pi Pico. This does assume that you have some basic knowledge of C, stepper motors, and how to wire/power them appropriately. This code is designed to be easily changed and altered to suit your needs. Once i figure out how to, I will include a basic wiring diagram.
 
 
 SET UP
