@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "pico/stdlib.h"
-#include "hardware/gpio.h"
 
 // Define masks that will be used to set pins
 
