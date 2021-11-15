@@ -23,12 +23,18 @@
 // This could be done more efficiently by someone smarter, but this
 // works for my very basic use case
 
-const char spin_left[4] = {
-    1, 2, 4, 8,
+const int spin_left[4] = {
+    1 << FIRST_MOTOR,
+    2 << FIRST_MOTOR,
+    4 << FIRST_MOTOR,
+    8 << FIRST_MOTOR
 };
 
-const char spin_right[4] = {
-    8, 4, 2, 1
+const int spin_right[4] = {
+    8 << FIRST_MOTOR,
+    4 << FIRST_MOTOR,
+    2 << FIRST_MOTOR, 
+    1 << FIRST_MOTOR
 };
 
 // A niave way of doing it, buy hey it runs. Can pass which motor
@@ -39,10 +45,10 @@ const char spin_right[4] = {
 // motor takes 512 stesp to make a full revolution, and can be passed a minimum
 // sleep time of 2ms. Your milage may vary, have fun tinkering :)
 
-void motor_turn (char motor, int steps, const char direction[4], int sleep_time) {
+void motor_turn (char motor, int steps, const int direction[4], int sleep_time) {
     // This sets how much the steps in the direction array will be bit shifted
     // so that they align with the correct motor
-    int shift = FIRST_MOTOR + (MOTOR_OFFSET * motor);
+    int shift = MOTOR_OFFSET * motor;
 
     for (int i = 0; i < steps; i++) {
         // Step through the direction array, bit shift each step by the correct
@@ -60,9 +66,9 @@ void motor_turn (char motor, int steps, const char direction[4], int sleep_time)
 // The same function, but it just always does one turn, slightly more effiecent
 // for the below code.
 
-void single_motor_turn (char motor, const char direction[4], int sleep_time) {
+void single_motor_turn (char motor, const int direction[4], int sleep_time) {
 
-    int shift = FIRST_MOTOR + (MOTOR_OFFSET * motor);
+    int shift = MOTOR_OFFSET * motor;
 
     for (int val = 0; val < 4; val++) {
         int mask = direction[val] << shift;
