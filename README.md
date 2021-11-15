@@ -21,4 +21,4 @@ make
 
 RUN
 
-Transfer this to your pico, and if everything has gone correctly, it should run no problems. Currently it is very basic, as will only make the stepper motor turn when a button is pressed.
+Transfer this to your pico, and if everything has gone correctly, it should run no problems. Currently it is very basic, as will only make the stepper motor turn when a button is held down, and will switch to another motor if another button is pressed.
